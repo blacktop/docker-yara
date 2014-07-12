@@ -1,0 +1,4 @@
+docker-yara
+===========
+
+Yara Dockerfile
