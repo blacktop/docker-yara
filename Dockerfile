@@ -13,10 +13,12 @@ RUN apt-get -q update && apt-get install -y python \
                                             python-dev
 
 ADD https://github.com/plusvic/yara/archive/v2.1.0.tar.gz /yara
+ADD /rules /rules
 
 RUN cd yara && ./build.sh && \
-                make install
-RUN ldconfig
+                make install \
+                ldconfig \
+                rm -rf /yara
 
 ENTRYPOINT ["yara"]
 
