@@ -17,7 +17,9 @@ RUN apt-get -q update && \
 ADD https://github.com/plusvic/yara/archive/v2.1.0.tar.gz /yara
 ADD /rules /rules
 
-RUN cd /yara/v2.1.0.tar.gz && \
+RUN cd /yara && \
+  tar -zxf yara-2.1.0.tar.gz && \
+  cd yara-2.1.0 && \
   ./build.sh && \
   make install && \
   ldconfig && \
