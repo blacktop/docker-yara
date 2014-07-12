@@ -21,12 +21,13 @@ ADD /rules /rules
 RUN echo $(ls)
 
 # Install Yara
-RUN tar -zxf yara-2.1.0.tar.gz && \
+RUN tar -zxf v2.1.0.tar.gz && \
+  echo $(ls) && \
   cd yara-2.1.0 && \
   ./build.sh && \
   make install && \
   ldconfig && \
-  rm yara-2.1.0.tar.gz && \
+  rm /2.1.0.tar.gz && \
   rm -rf /yara-2.1.0
 
 ENTRYPOINT ["yara"]
