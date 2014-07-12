@@ -24,7 +24,7 @@ RUN echo $(ls)
 RUN tar -zxf v2.1.0.tar.gz && \
   echo $(ls) && \
   cd yara-2.1.0 && \
-  ./build.sh && \
+  build.sh && \
   make install && \
   ldconfig && \
   rm /2.1.0.tar.gz && \
