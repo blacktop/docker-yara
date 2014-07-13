@@ -8,7 +8,8 @@ RUN echo '#!/bin/sh\nexit 101' > /usr/sbin/policy-rc.d && \
 
 # Install Yara Requirements
 RUN apt-get -q update && \
-  apt-get install -y python-dev \
+  apt-get install -y build-essential \
+                     python-dev \
                      automake \
                      autoconf \
                      libtool \
