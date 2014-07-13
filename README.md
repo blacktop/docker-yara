@@ -6,7 +6,7 @@ This repository contains a **Dockerfile** of [Yara](https://code.google.com/p/ya
 
 ### Dependencies
 
-* [ubuntu:latest](https://index.docker.io/_/ubuntu/)
+* [debian:jessie](https://index.docker.io/_/debian/)
 
 
 ### Installation
