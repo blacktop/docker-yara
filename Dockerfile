@@ -16,16 +16,13 @@ RUN apt-get -q update && \
                      python
 # Download Yara Source for Yara 2.1.0
 ADD https://github.com/plusvic/yara/archive/v2.1.0.tar.gz /
+
 # Add Yara Rules
 ADD /rules /rules
 
-RUN echo $(ls)
-
 # Install Yara
 RUN tar -zxf v2.1.0.tar.gz && \
-  echo $(ls) && \
   cd yara-2.1.0 && \
-  echo $(ls) && \
   chmod 755 build.sh && \
   ./build.sh && \
   make install && \
