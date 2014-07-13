@@ -30,7 +30,7 @@ RUN tar -zxf v2.1.0.tar.gz && \
   ./build.sh && \
   make install && \
   ldconfig && \
-  rm /2.1.0.tar.gz && \
+  rm /v2.1.0.tar.gz && \
   rm -rf /yara-2.1.0
 
 ENTRYPOINT ["yara"]
