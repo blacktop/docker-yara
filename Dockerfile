@@ -16,7 +16,7 @@ RUN apt-get -q update && \
                      python
 
 # Download Yara Source for Yara 2.1.0
-ADD https://github.com/plusvic/yara/archive/v2.1.0.tar.gz | tar -zxf
+ADD https://github.com/plusvic/yara/archive/v2.1.0.tar.gz \ | tar -zxf-
 
 # Add Yara Rules
 ADD /rules /rules
