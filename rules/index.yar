@@ -6,3 +6,6 @@
 include "signatures/embedded.yar"
 //include "signatures/shellcodes.yar"
 include "signatures/vmdetect.yar"
+include "signatures/cap.yar"
+include "signatures/pack.yar"
+include "signatures/rats.yar"
