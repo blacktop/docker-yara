@@ -21,6 +21,8 @@ ADD https://github.com/plusvic/yara/archive/v2.1.0.tar.gz /
 # Add Yara Rules
 ADD /rules /rules
 
+VOLUME /malware
+
 # Install Yara
 RUN tar -zxf v2.1.0.tar.gz && \
   cd yara-2.1.0 && \
