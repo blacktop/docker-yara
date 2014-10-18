@@ -2,11 +2,11 @@
 Yara Dockerfile
 ==================
 
-This repository contains a **Dockerfile** of [Yara](https://code.google.com/p/yara/) for [Docker](https://www.docker.io/)'s [trusted build](https://index.docker.io/u/blacktop/yara/) published to the public [Docker Registry](https://index.docker.io/).
+This repository contains a **Dockerfile** of [Yara](https://github.com/plusvic/yara) for [Docker](https://www.docker.io/)'s [trusted build](https://index.docker.io/u/blacktop/yara/) published to the public [Docker Registry](https://index.docker.io/).
 
 ### Dependencies
 
-* [debian:jessie](https://index.docker.io/_/debian/)
+* [debian:wheezy](https://index.docker.io/_/debian/)
 
 
 ### Installation

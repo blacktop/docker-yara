@@ -1,40 +1,40 @@
-FROM debian:jessie
-# FROM ubuntu:latest
+FROM debian:wheezy
+
 MAINTAINER blacktop, https://github.com/blacktop
 
-#Prevent daemon start during install
+# Prevent daemon start during install
 RUN echo '#!/bin/sh\nexit 101' > /usr/sbin/policy-rc.d && \
     chmod +x /usr/sbin/policy-rc.d
 
-# Install Yara Requirements
-RUN apt-get -q update && \
-  apt-get install -y build-essential \
-                     python-dev \
-                     automake \
-                     autoconf \
-                     libtool \
-                     python
+# Install Yara Required Dependencies
+RUN \
+  apt-get -qq update && \
+  apt-get install -yq build-essential \
+                      python-dev \
+                      automake \
+                      autoconf \
+                      libtool \
+                      python --no-install-recommends
 
-# Download Yara Source for Yara 2.1.0
-ADD https://github.com/plusvic/yara/archive/v2.1.0.tar.gz /
+# Install Yara and remove install dir after to conserve space
+RUN  \
+  git clone --recursive --branch v3.1.0 git://github.com/plusvic/yara && \
+  cd yara && \
+  ./bootstrap.sh && \
+  ./configure && \
+  make && \
+  make install && \
+  echo "/usr/local/lib" >> /etc/ld.so.conf && \
+  ldconfig && \
+  cd yara-python && \
+  python setup.py build && \
+  python setup.py install && \
+  rm -rf /yara && \
+  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Add Yara Rules
 ADD /rules /rules
 
 VOLUME /malware
 
-# Install Yara
-RUN tar -zxf v2.1.0.tar.gz && \
-  cd yara-2.1.0 && \
-  chmod 755 build.sh && \
-  ./build.sh && \
-  make install && \
-  ldconfig && \
-  rm /v2.1.0.tar.gz && \
-  rm -rf /yara-2.1.0 && \
-  apt-get clean && \
-  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
 ENTRYPOINT ["yara"]
-
-# CMD ["-h"]
