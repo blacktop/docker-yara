@@ -2,7 +2,7 @@
 Yara Dockerfile
 ==================
 
-This repository contains a **Dockerfile** of [Yara](https://github.com/plusvic/yara) for [Docker](https://www.docker.io/)'s [trusted build](https://index.docker.io/u/blacktop/yara/) published to the public [Docker Registry](https://index.docker.io/).
+This repository contains a **Dockerfile** of [Yara](http://plusvic.github.io/yara/) for [Docker](https://www.docker.io/)'s [trusted build](https://index.docker.io/u/blacktop/yara/) published to the public [Docker Registry](https://index.docker.io/).
 
 ### Dependencies
 

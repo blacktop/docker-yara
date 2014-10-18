@@ -11,6 +11,7 @@ RUN \
   apt-get -qq update && \
   apt-get install -yq build-essential \
                       python-dev \
+                      git-core \
                       automake \
                       autoconf \
                       libtool \
