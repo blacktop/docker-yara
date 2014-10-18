@@ -11,6 +11,7 @@ RUN \
   apt-get -qq update && \
   apt-get install -yq build-essential \
                       python-dev \
+                      git-core \
                       automake \
                       autoconf \
                       libtool \
@@ -18,7 +19,7 @@ RUN \
 
 # Install Yara and remove install dir after to conserve space
 RUN  \
-  git clone --recursive --branch v3.1.0 git://github.com/plusvic/yara && \
+  git clone --recursive git://github.com/plusvic/yara && \
   cd yara && \
   ./bootstrap.sh && \
   ./configure && \
