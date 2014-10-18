@@ -38,6 +38,9 @@ RUN  \
 # Add Yara Rules
 ADD /rules /rules
 
-VOLUME /malware
+VOLUME ["/malware"]
+VOLUME ["/rules"]
+
+WORKDIR /malware
 
 ENTRYPOINT ["yara"]
