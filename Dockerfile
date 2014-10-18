@@ -12,10 +12,12 @@ RUN \
   apt-get install -yq build-essential \
                       libjansson-dev \
                       libmagic-dev \
+                      libpcre3-dev \
                       python-dev \
                       git-core \
-                      automake \
                       autoconf \
+                      automake \
+                      libpcre3 \
                       libtool \
                       python --no-install-recommends
 
