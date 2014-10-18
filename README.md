@@ -13,6 +13,15 @@ This repository contains a **Dockerfile** of [Yara](http://plusvic.github.io/yar
 |:------:|:-----------:|:---------:|:---------:|
 | debian | 85.19 MB    | 257.71 MB | 342.9 MB  |
 
+### Image Tags
+```bash
+$ docker images
+
+REPOSITORY          TAG                 IMAGE ID           VIRTUAL SIZE
+blacktop/chopshop   latest              74057a3499be       341.6 MB
+blacktop/chopshop   3.1.0               66ee35842a1b       341.6 MB
+```
+
 ### Installation
 
 1. Install [Docker](https://www.docker.io/).
