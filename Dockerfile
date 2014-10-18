@@ -10,6 +10,8 @@ RUN echo '#!/bin/sh\nexit 101' > /usr/sbin/policy-rc.d && \
 RUN \
   apt-get -qq update && \
   apt-get install -yq build-essential \
+                      libjansson-dev \
+                      libmagic-dev \
                       python-dev \
                       git-core \
                       automake \
@@ -19,10 +21,10 @@ RUN \
 
 # Install Yara and remove install dir after to conserve space
 RUN  \
-  git clone --recursive git://github.com/plusvic/yara && \
+  git clone --recursive --branch v3.1.0 git://github.com/plusvic/yara && \
   cd yara && \
   ./bootstrap.sh && \
-  ./configure && \
+  ./configure --enable-cuckoo --enable-magic && \
   make && \
   make install && \
   echo "/usr/local/lib" >> /etc/ld.so.conf && \
