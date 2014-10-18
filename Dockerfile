@@ -12,12 +12,10 @@ RUN \
   apt-get install -yq build-essential \
                       libjansson-dev \
                       libmagic-dev \
-                      libpcre3-dev \
                       python-dev \
                       git-core \
-                      autoconf \
                       automake \
-                      libpcre3 \
+                      autoconf \
                       libtool \
                       python --no-install-recommends
 
@@ -40,6 +38,9 @@ RUN  \
 # Add Yara Rules
 ADD /rules /rules
 
-VOLUME /malware
+VOLUME ["/malware"]
+VOLUME ["/rules"]
+
+WORKDIR /malware
 
 ENTRYPOINT ["yara"]
