@@ -25,8 +25,8 @@ RUN \
 RUN \
   git clone --recursive --branch v3.2.0 git://github.com/plusvic/yara && \
   cd yara && \
-  ./bootstrap.sh && \
-  ./configure && \
+  autoreconf -i && \
+  ./configure --enable-magic && \
   make && \
   make install && \
   echo "/usr/local/lib" >> /etc/ld.so.conf && \
