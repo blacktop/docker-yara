@@ -20,7 +20,7 @@ RUN \
                       openssl \
                       libtool \
                       python \
-                      flex
+                      flex --no-install-recommends
 
 # Install Yara and remove install dir after to conserve space
 RUN \
