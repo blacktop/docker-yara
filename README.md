@@ -9,7 +9,7 @@ This repository contains a **Dockerfile** of [Yara](http://plusvic.github.io/yar
 * [debian:wheezy](https://index.docker.io/_/debian/)
 
 ### Image Sizes
-| Image | Virtual Size | Yara 3.1.0| TOTAL     |
+| Image | Virtual Size | Yara 3.2.0| TOTAL     |
 |:------:|:-----------:|:---------:|:---------:|
 | debian | 85.19 MB    | 257.71 MB | 342.9 MB  |
 
@@ -18,8 +18,8 @@ This repository contains a **Dockerfile** of [Yara](http://plusvic.github.io/yar
 $ docker images
 
 REPOSITORY          TAG                 IMAGE ID           VIRTUAL SIZE
-blacktop/chopshop   latest              74057a3499be       341.6 MB
-blacktop/chopshop   3.1.0               66ee35842a1b       341.6 MB
+blacktop/yara       latest              74057a3499be       341.6 MB
+blacktop/yara       3.2.0               66ee35842a1b       341.6 MB
 ```
 
 ### Installation
@@ -70,7 +70,7 @@ $ boot2docker up
 Add the following to your bash or zsh profile
 
 ```bash
-alias chopshop='docker run -it --rm -v $(pwd):/pcap:rw blacktop/yara $@'
+alias yara='docker run -it --rm -v $(pwd):/malware:rw blacktop/yara $@'
 ```
 #### Usage
 

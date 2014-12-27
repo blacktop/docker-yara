@@ -12,19 +12,21 @@ RUN \
   apt-get install -yq build-essential \
                       libjansson-dev \
                       libmagic-dev \
+                      pkg-config \
                       python-dev \
                       git-core \
                       automake \
                       autoconf \
+                      openssl \
                       libtool \
-                      python --no-install-recommends
+                      python
 
 # Install Yara and remove install dir after to conserve space
-RUN  \
-  git clone --recursive --branch v3.1.0 git://github.com/plusvic/yara && \
+RUN \
+  git clone --recursive --branch v3.2.0 git://github.com/plusvic/yara && \
   cd yara && \
   ./bootstrap.sh && \
-  ./configure --enable-magic && \
+  ./configure && \
   make && \
   make install && \
   echo "/usr/local/lib" >> /etc/ld.so.conf && \
