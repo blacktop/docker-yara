@@ -17,7 +17,9 @@ RUN \
                       automake \
                       autoconf \
                       libtool \
-                      python --no-install-recommends
+                      python --no-install-recommends && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install Yara and remove install dir after to conserve space
 RUN  \
