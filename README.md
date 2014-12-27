@@ -11,15 +11,15 @@ This repository contains a **Dockerfile** of [Yara](http://plusvic.github.io/yar
 ### Image Sizes
 | Image | Virtual Size | Yara 3.2.0| TOTAL     |
 |:------:|:-----------:|:---------:|:---------:|
-| debian | 85.1 MB     | 237.4 MB  | 322.5 MB  |
+| debian | 85.1 MB     | 238.5 MB  | 323.6 MB  |
 
 ### Image Tags
 ```bash
 $ docker images
 
 REPOSITORY          TAG                 IMAGE ID           VIRTUAL SIZE
-blacktop/yara       latest              47710c4183d8       322.5 MB
-blacktop/yara       3.2.0               8e347eb536b0       322.5 MB
+blacktop/yara       latest              a21e029d15b2       323.6 MB
+blacktop/yara       3.2.0               cf9315cde0d9       323.6 MB
 blacktop/yara       3.1.0               8fa1106afc1a       315.8 MB
 ```
 
