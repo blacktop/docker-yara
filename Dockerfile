@@ -25,17 +25,22 @@ RUN \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install Yara and remove install dir after to conserve space
-ADD http://www.digip.org/jansson/releases/jansson-2.7.tar.gz /
+ADD http://www.digip.org/jansson/releases/jansson-2.7.tar.gz /tmp/
+ADD http://www.digip.org/jansson/releases/jansson-2.7.tar.gz.asc /tmp/
+
 RUN \
-  tar -zxvf /jansson-2.7.tar.gz && \
-  rm /jansson-2.7.tar.gz && \
-  cd /jansson-2.7 && \
+  cd /tmp/ && \
+  gpg --keyserver pgpkeys.mit.edu --recv-key D4E39B36 && \
+  gpg /tmp/jansson-2.7.tar.gz.asc && \
+  tar -zxvf /tmp/jansson-2.7.tar.gz && \
+  cd /tmp/jansson-2.7 && \
   ./configure && \
   make && \
   make check && \
   make install && \
+  cd /tmp/ && \
   git clone --recursive --branch v3.2.0 git://github.com/plusvic/yara && \
-  cd yara && \
+  cd /tmp/yara && \
   autoreconf -i && \
   ./configure --enable-cuckoo --enable-magic && \
   make && \
@@ -45,7 +50,6 @@ RUN \
   cd yara-python && \
   python setup.py build && \
   python setup.py install && \
-  rm -rf /yara && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Add Yara Rules
