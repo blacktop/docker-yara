@@ -19,7 +19,8 @@ RUN \
                       autoconf \
                       openssl \
                       libtool \
-                      python
+                      python \
+                      flex
 
 # Install Yara and remove install dir after to conserve space
 RUN \
