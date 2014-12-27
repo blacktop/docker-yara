@@ -25,11 +25,19 @@ RUN \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install Yara and remove install dir after to conserve space
+ADD http://www.digip.org/jansson/releases/jansson-2.7.tar.gz /
 RUN \
+  tar -zxvf /jansson-2.7.tar.gz && \
+  rm /jansson-2.7.tar.gz && \
+  cd /jansson-2.7 && \
+  ./configure && \
+  make && \
+  make check && \
+  make install && \
   git clone --recursive --branch v3.2.0 git://github.com/plusvic/yara && \
   cd yara && \
   autoreconf -i && \
-  ./configure --enable-magic && \
+  ./configure --enable-cuckoo --enable-magic && \
   make && \
   make install && \
   echo "/usr/local/lib" >> /etc/ld.so.conf && \
