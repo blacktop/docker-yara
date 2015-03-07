@@ -39,7 +39,7 @@ RUN \
   make check && \
   make install && \
   cd /tmp/ && \
-  git clone --recursive --branch v3.2.0 git://github.com/plusvic/yara && \
+  git clone --recursive --branch v3.3.0 git://github.com/plusvic/yara && \
   cd /tmp/yara && \
   autoreconf -i && \
   ./configure --enable-cuckoo --enable-magic && \
