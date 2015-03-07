@@ -9,7 +9,7 @@ This repository contains a **Dockerfile** of [Yara](http://plusvic.github.io/yar
 * [debian:wheezy](https://index.docker.io/_/debian/)
 
 ### Image Sizes
-| Image | Virtual Size | Yara 3.2.0| TOTAL     |
+| Image | Virtual Size | Yara 3.3.0| TOTAL     |
 |:------:|:-----------:|:---------:|:---------:|
 | debian | 85.1 MB     | 238.5 MB  | 323.6 MB  |
 
@@ -17,10 +17,11 @@ This repository contains a **Dockerfile** of [Yara](http://plusvic.github.io/yar
 ```bash
 $ docker images
 
-REPOSITORY          TAG                 IMAGE ID           VIRTUAL SIZE
-blacktop/yara       latest              a21e029d15b2       323.6 MB
-blacktop/yara       3.2.0               cf9315cde0d9       323.6 MB
-blacktop/yara       3.1.0               8fa1106afc1a       315.8 MB
+REPOSITORY          TAG                 VIRTUAL SIZE
+blacktop/yara       latest              323.8 MB
+blacktop/yara       3.3.0               323.8 MB
+blacktop/yara       3.2.0               323.6 MB
+blacktop/yara       3.1.0               315.8 MB
 ```
 
 ### Installation
