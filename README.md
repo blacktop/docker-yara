@@ -16,11 +16,8 @@ This repository contains a **Dockerfile** of [Yara](http://plusvic.github.io/yar
 $ docker images
 
 REPOSITORY          TAG                 VIRTUAL SIZE
-blacktop/yara       latest              323.8 MB
-blacktop/yara       3.4.0               323.8 MB
-blacktop/yara       3.3.0               323.8 MB
-blacktop/yara       3.2.0               323.6 MB
-blacktop/yara       3.1.0               315.8 MB
+blacktop/yara       latest              55.16 MB
+blacktop/yara       3.4.0               55.16 MB
 ```
 
 ### Installation
