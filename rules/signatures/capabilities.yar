@@ -3,13 +3,13 @@ rule write_msr
     meta:
     description = "Writing MSR"
 
-    
+
     strings:
-    /* 
+    /*
         mov ecx, [ebp+??]
         mov eax, [ebp+??]
         mov edx, [ebp+??]
-        wrmsr 
+        wrmsr
     */
     $wr1 = {8B 4D ?? 8B 55 ?? 8B 45 ?? 0F 30}
     $wr2 = {8B 4D ?? 8B 45 ?? 8B 55 ?? 0F 30}
@@ -17,7 +17,7 @@ rule write_msr
     $wr4 = {8B 55 ?? 8B 45 ?? 8B 4D ?? 0F 30}
     $wr5 = {8B 45 ?? 8B 55 ?? 8B 4D ?? 0F 30}
     $wr6 = {8B 45 ?? 8B 4D ?? 8B 55 ?? 0F 30}
-    /* 
+    /*
         mov ecx, imm32
         mov eax, imm32
         mov edx, imm32
@@ -29,58 +29,37 @@ rule write_msr
     $wra = {B9 ?? ?? ?? BA ?? ?? ?? B8 ?? ?? ?? 0F 30}
     $wrb = {BA ?? ?? ?? B8 ?? ?? ?? B9 ?? ?? ?? 0F 30}
     $wrc = {BA ?? ?? ?? B9 ?? ?? ?? B8 ?? ?? ?? 0F 30}
-    
+
     condition:
     any of them
 }
 
-rule embedded_exe 
+rule embedded_exe
 {
     meta:
     description = "Detects embedded executables"
-    
+
     strings:
     $a = "This program cannot be run in DOS mode"
-    
+
     condition:
     $a in (1024..filesize)
 }
 
-rule vmdetect 
+rule encoding
 {
     meta:
-    description = "Indicates attempt to detect VMs"
-    
-    strings:
-    $vm0 = "VIRTUAL HD" nocase
-    $vm1 = "VMWARE VIRTUAL IDE HARD DRIVE" nocase
-    $vm2 = "QEMU HARDDISK" nocase
-    $vm3 = "VBOX HARDDRIVE" nocase
-    $vm4 = "The Wireshark Network Analyzer" 
-    $vm5 = "C:\\sample.exe"
-    $vm6 = "C:\\windows\\system32\\sample_1.exe"
-    $vm7 = "Process Monitor - Sysinternals: www.sysinternals.com" 
-    $vm8 = "File Monitor - Sysinternals: www.sysinternals.com" 
-    $vm9 = "Registry Monitor - Sysinternals: www.sysinternals.com"
-    
-    condition:
-    any of them
-}
-
-rule encoding 
-{ 
-    meta: 
     description = "Indicates encryption/compression"
-    
+
     strings:
     $zlib0 = "deflate" fullword
     $zlib1 = "Jean-loup Gailly"
     $zlib2 = "inflate" fullword
     $zlib3 = "Mark Adler"
-    
+
     $ssl0 = "OpenSSL" fullword
     $ssl1 = "SSLeay" fullword
-    
+
     condition:
     (all of ($zlib*)) or (all of ($ssl*))
 }
@@ -89,7 +68,7 @@ rule irc
 {
     meta:
     description = "Indicates use of IRC"
-    
+
     strings:
     $irc0 = "join" nocase fullword
     $irc1 = "msg" nocase fullword
@@ -100,16 +79,16 @@ rule irc
     $irc6 = "quit" nocase fullword
     $irc7 = "chat" nocase fullword
     $irc8 = "privmsg" nocase fullword
-    
+
     condition:
     4 of ($irc*)
-}   
+}
 
-rule sniffer 
-{ 
+rule sniffer
+{
     meta:
     description = "Indicates network sniffer"
-    
+
     strings:
     $sniff0 = "sniffer" nocase fullword
     $sniff1 = "rpcap:////" nocase
@@ -119,16 +98,16 @@ rule sniffer
     $sniff5 = "pcap_loop" nocase
     $sniff6 = "pcap_compile" nocase
     $sniff7 = "pcap_close" nocase
- 
+
     condition:
     any of them
 }
 
-rule spam 
+rule spam
 {
     meta:
     description = "Indicates spam-related activity"
-    
+
     strings:
     $spam0000 = "invitation card" nocase
     $spam0002 = "shipping documents" nocase
@@ -142,7 +121,7 @@ rule spam
     $spam000a = "shipping update for your amazon.com" nocase
     $spam000b = "rcpt to:" nocase
     $spam000c = "mail from:" nocase
-    $spam000d = "smtp server" nocase 
+    $spam000d = "smtp server" nocase
     $spam000e = "mx record" nocase
     $spam000f = "cialis" nocase fullword
     $spam0010 = "pharma" nocase fullword
@@ -152,7 +131,7 @@ rule spam
     $spam0014 = "subject: " nocase fullword
     $spam0015 = "Content-Disposition: attachment;" nocase
     $spam0016 = "postcard" nocase fullword
-    
+
     condition:
     3 of ($spam*)
 }
@@ -161,7 +140,7 @@ rule bruteforce
 {
     meta:
     description = "Indicates attempt to brute force passwords"
-    
+
     strings:
     $br0 = "winpass" fullword nocase
     $br1 = "orainstall" fullword nocase
@@ -555,16 +534,16 @@ rule bruteforce
     $br396 = "websecadm:changeme" nocase
     $br397 = "wlse:wlsedb" nocase
     $br398 = "wradmin:trancell" nocase
-    
+
     condition:
     10 of ($br*)
 }
 
-rule antiav 
+rule antiav
 {
     meta:
     description = "Attempts to thwarts AV"
-    
+
 	strings:
     $anti02 = "vptray" nocase
     $anti03 = "KavStart" nocase
@@ -846,7 +825,7 @@ rule antiav
     $anti02e = "defender" nocase
     $anti032 = "Antirootkit" nocase fullword
     $anti033 = "onecare" nocase fullword
-    $anti034 = "McAfee\\VSCore\\On Access Scanner\\BehaviourBlocking" nocase 
+    $anti034 = "McAfee\\VSCore\\On Access Scanner\\BehaviourBlocking" nocase
     $anti035 = "AccessProtectionUserRules" nocase
     $anti036 = "McAfee\\Common Framework\\SiteList.xml" nocase
 
@@ -856,9 +835,9 @@ rule antiav
 
 rule injection
 {
-    meta: 
+    meta:
     description = "Indicates attempt to inject code"
-    
+
     strings:
     $a = "injector" fullword nocase
     $b = "injecter" fullword nocase
@@ -866,14 +845,14 @@ rule injection
     $d = "injecter" fullword nocase wide
 
     condition:
-    any of them 
+    any of them
 }
 
 rule peertopeer
 {
     meta:
     description = "Indicates P2P file sharing attempts"
-    
+
 	strings:
 	$ptp1 = "BearShare" nocase
 	$ptp2 = "iMesh" nocase fullword
@@ -887,13 +866,13 @@ rule peertopeer
 	any of them
 }
 
-rule bankers 
+rule bankers
 {
     meta:
     description = "Indicates banker / passwd stealer"
 
 	strings:
-	
+
 	$pass1 = "PK11_GetInternalKeySlot" fullword wide ascii
 	$pass2 = "PK11_FreeSlot" fullword wide ascii
 	$pass3 = "PK11SDR_Decrypt" fullword wide ascii
@@ -940,9 +919,9 @@ rule bankers
     $pass40 = "NavigatorFTP" nocase wide ascii
     $pass41 = "totalcmd" nocase wide ascii
     $pass42 = "ghistler" nocase wide ascii
-    $pass43 = "moz_logins" 
+    $pass43 = "moz_logins"
     $pass44 = "sqlite3_open"
-	
+
 	$logins0000 = "strmemberid="
 	$logins0001 = "strpassword"
 	$logins0002 = "&account="
@@ -1003,19 +982,19 @@ rule bankers
     $logins0044 = "activate your account" nocase
     $logins0045 = "wrong password" nocase
     $logins0046 = "UIN#" nocase
-    $logins0047 = "login_email" 
-    $logins0048 = "txtAccountNumber" 
-    $logins0049 = "ecurityPin" 
-    $logins004a = "sortCode" 
-    $logins004b = "memorableAnswer" 
-    $logins004c = "txtCustomerID" 
+    $logins0047 = "login_email"
+    $logins0048 = "txtAccountNumber"
+    $logins0049 = "ecurityPin"
+    $logins004a = "sortCode"
+    $logins004b = "memorableAnswer"
+    $logins004c = "txtCustomerID"
     $logins004d = "MBindexuserkey"
     $logins004e = "ctlLoginFirstStep"
-    $logins004f = "__IDV_URL=hsbc.MyHSBC" 
+    $logins004f = "__IDV_URL=hsbc.MyHSBC"
     $logins0050 = "SignInWelcome"
-    $logins0051 = "nputuserid" 
-    $logins0052 = "PwdPad=IfYouAreReadingThis" 
-    $logins0053 = "txtLoginPin" 
+    $logins0051 = "nputuserid"
+    $logins0052 = "PwdPad=IfYouAreReadingThis"
+    $logins0053 = "txtLoginPin"
     $logins0054 = "inputmemorable"
     $logins0055 = "UserId1="
 	$bank0000 = ".bcvs.ch"
@@ -1825,22 +1804,22 @@ rule browsers
 {
     meta:
     description = "Indicates attempt to modify browser behavior"
-    
+
     strings:
     $browser0 = "browser" nocase
     $browser1 = "avant" nocase
     $browser2 = "netscape" nocase fullword
     $browser3 = "flock" nocase
-    $browser4 = "safari" nocase 
+    $browser4 = "safari" nocase
     $browser5 = "chrome" nocase
     $browser6 = "opera" nocase fullword
     $browser7 = "mozilla" nocase
     $browser8 = "firefox" nocase
     $browser9 = "GreenBrowser" fullword
-    
-    $adobe1 = "Adobe Systems Incorporated" 
+
+    $adobe1 = "Adobe Systems Incorporated"
     $adobe2 = "Adobe Systems Incorporated" wide
-    
+
     condition:
     (4 of ($browser*)) and not $adobe1 and not $adobe2
 }
