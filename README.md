@@ -6,12 +6,10 @@ This repository contains a **Dockerfile** of [Yara](http://plusvic.github.io/yar
 
 ### Dependencies
 
-* [debian:wheezy](https://index.docker.io/_/debian/)
+* [alpine](https://registry.hub.docker.com/_/alpine/)
 
-### Image Sizes
-| Image | Virtual Size | Yara 3.3.0| TOTAL     |
-|:------:|:-----------:|:---------:|:---------:|
-| debian | 85.1 MB     | 238.5 MB  | 323.6 MB  |
+### Image Size
+[![](https://badge.imagelayers.io/blacktop/yara:latest.svg)](https://imagelayers.io/?images=blacktop/yara:latest 'Get your own badge on imagelayers.io')
 
 ### Image Tags
 ```bash
@@ -19,6 +17,7 @@ $ docker images
 
 REPOSITORY          TAG                 VIRTUAL SIZE
 blacktop/yara       latest              323.8 MB
+blacktop/yara       3.4.0               323.8 MB
 blacktop/yara       3.3.0               323.8 MB
 blacktop/yara       3.2.0               323.6 MB
 blacktop/yara       3.1.0               315.8 MB
@@ -39,25 +38,31 @@ $ docker build -t blacktop/yara github.com/blacktop/docker-yara
 $ docker run -i -t -v /path/to/malware:/malware:rw blacktop/yara
 ```
 #### Output:
-    usage:  yara [OPTION]... RULES_FILE FILE | PID
-    options:
-      -t <tag>                 only print rules tagged as <tag>.
-      -i <identifier>          only print rules named <identifier>.
-      -n                       only print not satisfied rules (negate).
-      -g                       print tags.
-      -m                       print metadata.
-      -s                       print matching strings.
-      -p <number>              use the specified <number> of threads to scan a directory.
-      -l <number>              abort scanning after matching a number rules.
-      -a <seconds>             abort scanning after a number of seconds has elapsed.
-      -d <identifier>=<value>  define external variable.
-      -x <module>=<file>       pass file's content as extra data to module.
-      -r                       recursively search directories.
-      -f                       fast matching mode.
-      -w                       disable warnings.
-      -v                       show version information.
+  YARA 3.4.0, the pattern matching swiss army knife.
+  Usage: yara [OPTION]... RULES_FILE FILE | DIR | PID
 
-    Report bugs to: <vmalvarez@virustotal.com>
+  Mandatory arguments to long options are mandatory for short options too.
+
+    -t,  --tag=TAG                   print only rules tagged as TAG
+    -i,  --identifier=IDENTIFIER     print only rules named IDENTIFIER
+    -n,  --negate                    print only not satisfied rules (negate)
+    -D,  --print-module-data         print module data
+    -g,  --print-tags                print tags
+    -m,  --print-meta                print metadata
+    -s,  --print-strings             print matching strings
+    -e,  --print-namespace           print rules' namespace
+    -p,  --threads=NUMBER            use the specified NUMBER of threads to scan a directory
+    -l,  --max-rules=NUMBER          abort scanning after matching a NUMBER of rules
+    -d VAR=VALUE                     define external variable
+    -x MODULE=FILE                   pass FILE's content as extra data to MODULE
+    -a,  --timeout=SECONDS           abort scanning after the given number of SECONDS
+    -r,  --recursive                 recursively search directories
+    -f,  --fast-scan                 fast matching mode
+    -w,  --no-warnings               disable warnings
+    -v,  --version                   show version information
+    -h,  --help                      show this help and exit
+
+  Send bug reports and suggestions to: vmalvarez@virustotal.com.
 
 ### To Run on OSX
  - Install [Homebrew](http://brew.sh)
@@ -66,8 +71,9 @@ $ docker run -i -t -v /path/to/malware:/malware:rw blacktop/yara
 $ brew install cask
 $ brew cask install virtualbox
 $ brew install docker
-$ brew install boot2docker
-$ boot2docker up
+$ brew install docker-machine
+$ docker-machine create --driver virtualbox dev
+$ eval $(docker-machine env dev)
 ```
 Add the following to your bash or zsh profile
 
@@ -77,7 +83,7 @@ alias yara='docker run -it --rm -v $(pwd):/malware:rw blacktop/yara $@'
 #### Usage
 
 ```bash
-$ yara [OPTIONS] RULES_FILE TARGET
+$ yara [OPTION]... RULES_FILE FILE | DIR | PID
 ```
 
 ### Todo
