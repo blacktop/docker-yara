@@ -32,7 +32,9 @@ $ docker build -t blacktop/yara github.com/blacktop/docker-yara
 ```
 ### Usage
 ```bash
-$ docker run -i -t -v /path/to/malware:/malware:ro -v /path/to/rules:/rules:ro blacktop/yara --help
+$ docker run -it -v /path/to/malware:/malware:ro \
+                 -v /path/to/rules:/rules:ro \
+             blacktop/yara --help
 ```
 #### Output:
     YARA 3.4.0, the pattern matching swiss army knife.
@@ -75,15 +77,10 @@ $ eval $(docker-machine env dev)
 Add the following to your bash or zsh profile
 
 ```bash
-alias yara='docker run -it --rm -v $(pwd):/malware:rw blacktop/yara $@'
+alias yara='docker run -it --rm -v $(pwd):/malware:ro blacktop/yara $@'
 ```
 #### Usage
 
 ```bash
 $ yara [OPTION]... RULES_FILE FILE | DIR | PID
 ```
-
-### Todo
-- [x] Install/Run Yara
-- [ ] Start Daemon and watch folder with supervisord
-- [ ] Have container take a URL as input and download/scan memory dump
