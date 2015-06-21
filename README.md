@@ -32,7 +32,7 @@ $ docker build -t blacktop/yara github.com/blacktop/docker-yara
 ```
 ### Usage
 ```bash
-$ docker run -i -t -v /path/to/malware:/malware:rw blacktop/yara
+$ docker run -i -t -v /path/to/malware:/malware:ro -v /path/to/rules:/rules:ro blacktop/yara --help
 ```
 #### Output:
     YARA 3.4.0, the pattern matching swiss army knife.
