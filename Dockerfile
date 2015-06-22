@@ -12,11 +12,10 @@ RUN buildDeps='autoconf \
               libc-dev \
               libtool \
               make \
-              openssl-dev \
-              python-dev' \
+              openssl-dev' \
   && set -x \
-  && apk --update add python openssl file jansson $buildDeps \
-  && cd /tmp/ \
+  && apk --update add openssl file jansson $buildDeps \
+  && cd /tmp \
   && git clone --recursive --branch v3.4.0 git://github.com/plusvic/yara \
   && cd /tmp/yara \
   && ./bootstrap.sh \
@@ -25,8 +24,6 @@ RUN buildDeps='autoconf \
                  --with-crypto \
   && make \
   && make install \
-  && cd yara-python \
-  && python setup.py build install \
   && apk del --purge $buildDeps \
   && rm -rf /tmp/* /root/.cache /var/cache/apk/*
 
