@@ -6,21 +6,10 @@ This repository contains a **Dockerfile** of [Yara](http://plusvic.github.io/yar
 
 ### Dependencies
 
-* [debian:wheezy](https://index.docker.io/_/debian/)
+* [debian:jessie](https://index.docker.io/_/debian/)
 
-### Image Sizes
-| Image | Virtual Size | Yara 3.1.0| TOTAL     |
-|:------:|:-----------:|:---------:|:---------:|
-| debian | 85.19 MB    | 257.71 MB | 342.9 MB  |
-
-### Image Tags
-```bash
-$ docker images
-
-REPOSITORY          TAG                 IMAGE ID           VIRTUAL SIZE
-blacktop/chopshop   latest              74057a3499be       341.6 MB
-blacktop/chopshop   3.1.0               66ee35842a1b       341.6 MB
-```
+### Image Size
+[![](https://badge.imagelayers.io/blacktop/yara:3.1.0.svg)](https://imagelayers.io/?images=blacktop/yara:3.1.0 'Get your own badge on imagelayers.io')
 
 ### Installation
 
