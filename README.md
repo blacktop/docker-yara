@@ -19,6 +19,7 @@ REPOSITORY          TAG                 VIRTUAL SIZE
 blacktop/yara       latest              55.16 MB
 blacktop/yara       3.4.0               55.16 MB
 blacktop/yara       3.4.0_no_python     19.32 MB
+blacktop/yara       3.1.0               163.7 MB (debian:jessie)
 ```
 
 ### Installation
