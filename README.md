@@ -69,7 +69,7 @@ $ docker run -it -v /path/to/malware:/malware:ro \
  - Install [Homebrew](http://brew.sh)
 
 ```bash
-$ brew install cask
+$ brew install caskroom/cask/brew-cask
 $ brew cask install virtualbox
 $ brew install docker
 $ brew install docker-machine
