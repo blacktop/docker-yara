@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:edge
 
 MAINTAINER blacktop, https://github.com/blacktop
 
