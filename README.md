@@ -2,21 +2,24 @@
 Yara Dockerfile
 ==================
 
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
+[![Docker Stars](https://img.shields.io/docker/stars/blacktop/yara.svg)][hub]
+[![Docker Pulls](https://img.shields.io/docker/pulls/blacktop/yara.svg)][hub]
+[![Image Size](https://img.shields.io/imagelayers/image-size/blacktop/yara/latest.svg)](https://imagelayers.io/?images=blacktop/yara:latest)
+[![Image Layers](https://img.shields.io/imagelayers/layers/blacktop/yara/latest.svg)](https://imagelayers.io/?images=blacktop/yara:latest)
+
 This repository contains a **Dockerfile** of [Yara](http://plusvic.github.io/yara/) for [Docker](https://www.docker.io/)'s [trusted build](https://index.docker.io/u/blacktop/yara/) published to the public [Docker Registry](https://index.docker.io/).
 
 ### Dependencies
 
 * [alpine](https://registry.hub.docker.com/_/alpine/)
 
-### Image Size
-[![](https://badge.imagelayers.io/blacktop/yara:latest.svg)](https://imagelayers.io/?images=blacktop/yara:latest 'Get your own badge on imagelayers.io')
-
 ### Image Tags
 ```bash
 $ docker images
 
 REPOSITORY          TAG                 VIRTUAL SIZE
-blacktop/yara       latest              55.16 MB
+blacktop/yara       latest              59    MB
 blacktop/yara       3.4.0               55.16 MB
 blacktop/yara       3.4.0_no_python     19.32 MB
 blacktop/yara       3.1.0               163.7 MB (debian:jessie)
@@ -86,3 +89,5 @@ alias yara='docker run -it --rm -v $(pwd):/malware:ro blacktop/yara $@'
 ```bash
 $ yara [OPTION]... RULES_FILE FILE | DIR | PID
 ```
+
+[hub]: https://hub.docker.com/r/blacktop/yara/
