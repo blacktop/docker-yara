@@ -26,3 +26,5 @@ VOLUME ["/rules"]
 WORKDIR /malware
 
 ENTRYPOINT ["yara"]
+
+CMD ["--help"]

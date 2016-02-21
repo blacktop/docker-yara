@@ -32,9 +32,9 @@ blacktop/yara       3.1.0               163.7 MB (debian:jessie)
 
 ### Usage
 ```bash
-$ docker run -it -v /path/to/malware:/malware:ro \
-                 -v /path/to/rules:/rules:ro \
-             blacktop/yara --help
+$ docker run --rm -v /path/to/rules:/rules:ro \
+                  -v /path/to/malware:/malware:ro \
+                  blacktop/yara
 ```
 #### Output:
     YARA 3.4.0, the pattern matching swiss army knife.
