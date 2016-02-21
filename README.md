@@ -7,11 +7,11 @@
 [![Image Size](https://img.shields.io/imagelayers/image-size/blacktop/yara/latest.svg)](https://imagelayers.io/?images=blacktop/yara:latest)
 [![Image Layers](https://img.shields.io/imagelayers/layers/blacktop/yara/latest.svg)](https://imagelayers.io/?images=blacktop/yara:latest)
 
-This repository contains a **Dockerfile** of [Yara](http://plusvic.github.io/yara/) for [Docker](https://www.docker.io/)'s [trusted build](https://index.docker.io/u/blacktop/yara/) published to the public [Docker Registry](https://index.docker.io/).
+This repository contains a **Dockerfile** of [Yara](http://plusvic.github.io/yara/) for [Docker](https://www.docker.io/)'s [trusted build](https://hub.docker.com/r/blacktop/yara/) published to the public [Docker Registry](https://hub.docker.com/).
 
 ### Dependencies
 
-* [alpine](https://registry.hub.docker.com/_/alpine/)
+* [gliderlabs/alpine](https://hub.docker.com/_/gliderlabs/alpine/)
 
 ### Image Tags
 ```bash
@@ -28,12 +28,8 @@ blacktop/yara       3.1.0               163.7 MB (debian:jessie)
 
 1. Install [Docker](https://www.docker.io/).
 
-2. Download [trusted build](https://index.docker.io/u/blacktop/yara/) from public [Docker Registry](https://index.docker.io/): `docker pull blacktop/yara`
+2. Download [trusted build](https://hub.docker.com/u/blacktop/yara/) from public [Docker Registry](https://hub.docker.com/): `docker pull blacktop/yara`
 
-#### Alternatively, build an image from Dockerfile
-```bash
-$ docker build -t blacktop/yara github.com/blacktop/docker-yara
-```
 ### Usage
 ```bash
 $ docker run -it -v /path/to/malware:/malware:ro \
@@ -75,8 +71,8 @@ $ brew install caskroom/cask/brew-cask
 $ brew cask install virtualbox
 $ brew install docker
 $ brew install docker-machine
-$ docker-machine create --driver virtualbox dev
-$ eval $(docker-machine env dev)
+$ docker-machine create --driver virtualbox default
+$ eval $(docker-machine env default)
 ```
 Add the following to your bash or zsh profile
 
