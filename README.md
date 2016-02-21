@@ -1,6 +1,5 @@
-![yara-logo](http://plusvic.github.io/yara/images/logo.png)
-Yara Dockerfile
-==================
+![YARA-logo](https://raw.githubusercontent.com/blacktop/docker-yara/master/logo.png)
+# Yara Dockerfile
 
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
 [![Docker Stars](https://img.shields.io/docker/stars/blacktop/yara.svg)][hub]
