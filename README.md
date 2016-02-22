@@ -1,40 +1,40 @@
-![yara-logo](http://plusvic.github.io/yara/images/logo.png)
-Yara Dockerfile
-==================
+![YARA-logo](https://raw.githubusercontent.com/blacktop/docker-yara/master/logo.png)
+# Yara Dockerfile
 
-This repository contains a **Dockerfile** of [Yara](http://plusvic.github.io/yara/) for [Docker](https://www.docker.io/)'s [trusted build](https://index.docker.io/u/blacktop/yara/) published to the public [Docker Registry](https://index.docker.io/).
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
+[![Docker Stars](https://img.shields.io/docker/stars/blacktop/yara.svg)][hub]
+[![Docker Pulls](https://img.shields.io/docker/pulls/blacktop/yara.svg)][hub]
+[![Image Size](https://img.shields.io/imagelayers/image-size/blacktop/yara/latest.svg)](https://imagelayers.io/?images=blacktop/yara:latest)
+[![Image Layers](https://img.shields.io/imagelayers/layers/blacktop/yara/latest.svg)](https://imagelayers.io/?images=blacktop/yara:latest)
+
+This repository contains a **Dockerfile** of [Yara](http://plusvic.github.io/yara/) for [Docker](https://www.docker.io/)'s [trusted build](https://hub.docker.com/r/blacktop/yara/) published to the public [Docker Registry](https://hub.docker.com/).
 
 ### Dependencies
 
-* [alpine](https://registry.hub.docker.com/_/alpine/)
-
-### Image Size
-[![](https://badge.imagelayers.io/blacktop/yara:latest.svg)](https://imagelayers.io/?images=blacktop/yara:latest 'Get your own badge on imagelayers.io')
+* [gliderlabs/alpine](https://hub.docker.com/_/gliderlabs/alpine/)
 
 ### Image Tags
 ```bash
 $ docker images
 
 REPOSITORY          TAG                 VIRTUAL SIZE
-blacktop/yara       latest              55.16 MB
+blacktop/yara       latest              59    MB
 blacktop/yara       3.4.0               55.16 MB
+blacktop/yara       3.4.0_no_python     19.32 MB
+blacktop/yara       3.1.0               163.7 MB (debian:jessie)
 ```
 
 ### Installation
 
 1. Install [Docker](https://www.docker.io/).
 
-2. Download [trusted build](https://index.docker.io/u/blacktop/yara/) from public [Docker Registry](https://index.docker.io/): `docker pull blacktop/yara`
+2. Download [trusted build](https://hub.docker.com/u/blacktop/yara/) from public [Docker Registry](https://hub.docker.com/): `docker pull blacktop/yara`
 
-#### Alternatively, build an image from Dockerfile
-```bash
-$ docker build -t blacktop/yara github.com/blacktop/docker-yara
-```
 ### Usage
 ```bash
-$ docker run -it -v /path/to/malware:/malware:ro \
-                 -v /path/to/rules:/rules:ro \
-             blacktop/yara --help
+$ docker run --rm -v /path/to/rules:/rules:ro \
+                  -v /path/to/malware:/malware:ro \
+                  blacktop/yara /rules/RULES_FILE FILE
 ```
 #### Output:
     YARA 3.4.0, the pattern matching swiss army knife.
@@ -67,12 +67,12 @@ $ docker run -it -v /path/to/malware:/malware:ro \
  - Install [Homebrew](http://brew.sh)
 
 ```bash
-$ brew install cask
+$ brew install caskroom/cask/brew-cask
 $ brew cask install virtualbox
 $ brew install docker
 $ brew install docker-machine
-$ docker-machine create --driver virtualbox dev
-$ eval $(docker-machine env dev)
+$ docker-machine create --driver virtualbox default
+$ eval $(docker-machine env default)
 ```
 Add the following to your bash or zsh profile
 
@@ -84,3 +84,5 @@ alias yara='docker run -it --rm -v $(pwd):/malware:ro blacktop/yara $@'
 ```bash
 $ yara [OPTION]... RULES_FILE FILE | DIR | PID
 ```
+
+[hub]: https://hub.docker.com/r/blacktop/yara/

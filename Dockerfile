@@ -1,21 +1,12 @@
-FROM alpine
+FROM gliderlabs/alpine
 
 MAINTAINER blacktop, https://github.com/blacktop
 
-RUN buildDeps='autoconf \
-              automake \
-              file-dev \
-              flex \
-              gcc \
-              git \
-              jansson-dev \
-              libc-dev \
-              libtool \
-              make \
-              openssl-dev' \
+COPY rules /rules
+RUN apk-install openssl file jansson
+RUN apk-install -t build-deps git autoconf automake file-dev flex git jansson-dev libc-dev libtool build-base openssl-dev \
   && set -x \
-  && apk --update add openssl file jansson $buildDeps \
-  && cd /tmp \
+  && cd /tmp/ \
   && git clone --recursive --branch v3.4.0 git://github.com/plusvic/yara \
   && cd /tmp/yara \
   && ./bootstrap.sh \
@@ -24,11 +15,8 @@ RUN buildDeps='autoconf \
                  --with-crypto \
   && make \
   && make install \
-  && apk del --purge $buildDeps \
-  && rm -rf /tmp/* /root/.cache /var/cache/apk/*
-
-# Add Yara Rules
-ADD /rules /rules
+  && rm -rf /tmp/* \
+  && apk del --purge build-deps
 
 VOLUME ["/malware"]
 VOLUME ["/rules"]
@@ -36,3 +24,5 @@ VOLUME ["/rules"]
 WORKDIR /malware
 
 ENTRYPOINT ["yara"]
+
+CMD ["--help"]
