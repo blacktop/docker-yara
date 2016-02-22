@@ -18,16 +18,15 @@ This repository contains a **Dockerfile** of [Yara](http://plusvic.github.io/yar
 $ docker images
 
 REPOSITORY          TAG                 VIRTUAL SIZE
-blacktop/yara       latest              59    MB
-blacktop/yara       3.4.0               55.16 MB
-blacktop/yara       3.4.0_no_python     19.32 MB
+blacktop/yara       latest              57    MB
+blacktop/yara       3.4.0               57    MB
+blacktop/yara       3.4.0_no_python     17    MB
 blacktop/yara       3.1.0               163.7 MB (debian:jessie)
 ```
 
 ### Installation
 
 1. Install [Docker](https://www.docker.io/).
-
 2. Download [trusted build](https://hub.docker.com/u/blacktop/yara/) from public [Docker Registry](https://hub.docker.com/): `docker pull blacktop/yara`
 
 ### Usage
