@@ -7,7 +7,7 @@ RUN apk-install openssl file jansson python
 RUN apk-install -t build-deps git autoconf automake file-dev flex git jansson-dev libc-dev libtool build-base openssl-dev python-dev \
   && set -x \
   && cd /tmp/ \
-  && git clone --recursive --branch v3.4.0 git://github.com/plusvic/yara \
+  && git clone --recursive --branch v3.4.0 https://github.com/VirusTotal/yara.git \
   && cd /tmp/yara \
   && ./bootstrap.sh \
   && ./configure --enable-cuckoo \
