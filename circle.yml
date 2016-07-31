@@ -6,8 +6,8 @@ general:
   build_dir: "3.4"
 
 dependencies:
-  pre:
-    - make circleci
+  # pre:
+  #   - make circleci
   override:
     - make build
   post:
