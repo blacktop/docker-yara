@@ -28,7 +28,7 @@ blacktop/yara       3.1.0               163.7 MB (debian:jessie)
 1.	Install [Docker](https://docs.docker.com).
 2.	Download [trusted build](https://hub.docker.com/u/blacktop/yara/) from public [Docker Registry](https://hub.docker.com/): `docker pull blacktop/yara`
 
-### Usage
+### Getting Started
 
 ```bash
 $ docker run --rm -v /path/to/rules:/rules:ro \
