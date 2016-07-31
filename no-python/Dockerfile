@@ -4,9 +4,8 @@ MAINTAINER blacktop, https://github.com/blacktop
 
 ENV GOSU_VERSION 1.9
 
-COPY rules /rules
-RUN apk-install openssl file jansson python tini
-RUN apk-install -t build-deps git autoconf automake file-dev flex git jansson-dev libc-dev libtool build-base openssl-dev python-dev \
+RUN apk-install openssl file jansson tini
+RUN apk-install -t build-deps git autoconf automake file-dev flex git jansson-dev libc-dev libtool build-base openssl-dev \
   && set -x \
   && echo "Grab gosu for easy step-down from root..." \
   && apk-install -t .gosu-deps \
@@ -22,8 +21,7 @@ RUN apk-install -t build-deps git autoconf automake file-dev flex git jansson-de
   && rm -r "$GNUPGHOME" /usr/local/bin/gosu.asc \
   && chmod +x /usr/local/bin/gosu \
   && gosu nobody true \
-  && apk del .gosu-deps \
-  && echo "Install Yara from source with yara-python..." \
+  && echo "Install Yara from source..." \
   && cd /tmp/ \
   && git clone --recursive --branch v3.4.0 https://github.com/VirusTotal/yara.git \
   && cd /tmp/yara \
@@ -33,10 +31,8 @@ RUN apk-install -t build-deps git autoconf automake file-dev flex git jansson-de
                  --with-crypto \
   && make \
   && make install \
-  && cd yara-python \
-  && python setup.py build install \
   && rm -rf /tmp/* \
-  && apk del --purge build-deps
+  && apk del --purge build-deps .gosu-deps
 
 VOLUME ["/malware"]
 VOLUME ["/rules"]
