@@ -43,6 +43,6 @@ VOLUME ["/rules"]
 
 WORKDIR /malware
 
-ENTRYPOINT ["yara"]
+ENTRYPOINT ["gosu","nobody","/sbin/tini","--","yara"]
 
 CMD ["--help"]
