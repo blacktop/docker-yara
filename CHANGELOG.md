@@ -26,4 +26,6 @@ All notable changes to this project will be documented in this file.
 
 ### Removed
 
+-	I am not including my rules folder by default anymore, but you can easily add it at runtime as shown in the README.md
+
 ### Changed
