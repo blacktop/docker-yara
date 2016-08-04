@@ -23,9 +23,9 @@ RUN apk-install -t build-deps git autoconf automake file-dev flex git jansson-de
   && chmod +x /usr/local/bin/gosu \
   && gosu nobody true \
   && apk del .gosu-deps \
-  && echo "Install Yara from source with yara-python..." \
+  && echo "Install Yara from source..." \
   && cd /tmp/ \
-  && git clone --recursive --branch v3.4.0 https://github.com/VirusTotal/yara.git \
+  && git clone --recursive --branch v3.5.0 https://github.com/VirusTotal/yara.git \
   && cd /tmp/yara \
   && ./bootstrap.sh \
   && ./configure --enable-cuckoo \
@@ -33,8 +33,12 @@ RUN apk-install -t build-deps git autoconf automake file-dev flex git jansson-de
                  --with-crypto \
   && make \
   && make install \
+  && echo "Install yara-python..." \
+  && cd /tmp/ \
+  && git clone --recursive --branch v3.5.0 https://github.com/VirusTotal/yara-python \
   && cd yara-python \
-  && python setup.py build install \
+  && python setup.py build \
+  && python setup.py install \
   && rm -rf /tmp/* \
   && apk del --purge build-deps
 

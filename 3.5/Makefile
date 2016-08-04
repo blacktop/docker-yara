@@ -3,7 +3,7 @@ VERSION=$(shell cat VERSION)
 DEV_RUN_OPTS ?= --help
 
 dev:
-	docker build -f Dockerfile.dev -t $(NAME):dev .
+	docker build -f Dockerfile -t $(NAME):dev .
 	docker run --rm $(NAME):dev $(DEV_RUN_OPTS)
 
 tags:

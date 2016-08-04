@@ -24,8 +24,8 @@ blacktop/yara       no-py               16.91 MB
 blacktop/yara       3.1.0               163.7 MB (debian:jessie)
 ```
 
-> NOTE: tag **no-py** is `yara:3.4` without yara-python
-> NOTE: tag **w-rules** is `yara:3.4` with some default yara rules included in the /rules directory.
+> NOTE: tag **no-py** is `yara:3.5` without yara-python
+> NOTE: tag **w-rules** is `yara:3.5` with some default yara rules included in the /rules directory.
 
 ### Installation
 

@@ -3,8 +3,8 @@ Change Log
 
 All notable changes to this project will be documented in this file.
 
-[unreleased][unreleased]
-------------------------
+[3.5] - 2016-08-04
+------------------
 
 ### Fixed
 
@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 ### Removed
 
 ### Changed
+
 
 [3.4] - 2016-07-29
 ------------------

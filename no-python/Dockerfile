@@ -23,7 +23,7 @@ RUN apk-install -t build-deps git autoconf automake file-dev flex git jansson-de
   && gosu nobody true \
   && echo "Install Yara from source..." \
   && cd /tmp/ \
-  && git clone --recursive --branch v3.4.0 https://github.com/VirusTotal/yara.git \
+  && git clone --recursive --branch v3.5.0 https://github.com/VirusTotal/yara.git \
   && cd /tmp/yara \
   && ./bootstrap.sh \
   && ./configure --enable-cuckoo \

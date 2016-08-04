@@ -34,7 +34,7 @@ RUN apk-install -t build-deps git autoconf automake file-dev flex git jansson-de
   && make install \
   && echo "Install yara-python..." \
   && cd /tmp/ \
-  && git clone --recursive https://github.com/VirusTotal/yara-python \
+  && git clone --recursive --branch v3.5.0 https://github.com/VirusTotal/yara-python \
   && cd yara-python \
   && python setup.py build \
   && python setup.py install \
