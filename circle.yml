@@ -16,7 +16,6 @@ dependencies:
 
 test:
   override:
-    - echo "rule dummy { condition: true }" > my_first_rule
     - docker run -v `pwd`:/rules -v `pwd`:/malware blacktop_yara my_first_rule my_first_rule
 
 deployment:
