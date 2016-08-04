@@ -3,19 +3,21 @@ machine:
     - docker
 
 general:
-  build_dir: "3.4"
+  build_dir: "3.5"
 
 dependencies:
-  # pre:
-  #   - make circleci
+  cache_directories:
+    - "~/docker"
   override:
-    - make build
-  post:
-    - cp build/* $CIRCLE_ARTIFACTS
+    - docker info
+    - if [[ -e ~/docker/image.tar ]]; then docker load --input ~/docker/image.tar; fi
+    - docker build -t blacktop_yara .
+    - mkdir -p ~/docker; docker save blacktop_yara > ~/docker/image.tar
 
 test:
   override:
-    - /bin/true
+    - echo "rule dummy { condition: true }" > my_first_rule
+    - docker run -v `pwd`:/rules -v `pwd`:/malware blacktop_yara my_first_rule my_first_rule
 
 deployment:
   # master:
