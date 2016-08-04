@@ -6,7 +6,7 @@ ENV GOSU_VERSION 1.9
 
 COPY rules /rules
 RUN apk-install openssl file jansson python tini
-RUN apk-install -t build-deps git autoconf automake file-dev flex git jansson-dev libc-dev libtool build-base openssl-dev python-dev \
+RUN apk-install -t build-deps git autoconf automake file-dev flex git jansson-dev libc-dev libtool build-base openssl-dev python-dev py-setuptools \
   && set -x \
   && echo "Grab gosu for easy step-down from root..." \
   && apk-install -t .gosu-deps \
@@ -37,7 +37,7 @@ RUN apk-install -t build-deps git autoconf automake file-dev flex git jansson-de
   && cd /tmp/ \
   && git clone --recursive --branch v3.5.0 https://github.com/VirusTotal/yara-python \
   && cd yara-python \
-  && python setup.py build \
+  && python setup.py build --dynamic-linking \
   && python setup.py install \
   && rm -rf /tmp/* \
   && apk del --purge build-deps

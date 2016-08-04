@@ -5,7 +5,7 @@ MAINTAINER blacktop, https://github.com/blacktop
 ENV GOSU_VERSION 1.9
 
 RUN apk-install openssl file jansson python tini
-RUN apk-install -t build-deps git autoconf automake file-dev flex git jansson-dev libc-dev libtool build-base openssl-dev python-dev \
+RUN apk-install -t build-deps git autoconf automake file-dev flex git jansson-dev libc-dev libtool build-base openssl-dev python-dev py-setuptools \
   && set -x \
   && echo "Grab gosu for easy step-down from root..." \
   && apk-install -t .gosu-deps \
@@ -22,7 +22,7 @@ RUN apk-install -t build-deps git autoconf automake file-dev flex git jansson-de
   && chmod +x /usr/local/bin/gosu \
   && gosu nobody true \
   && apk del .gosu-deps \
-  && echo "Install Yara from source with yara-python..." \
+  && echo "Install Yara from source..." \
   && cd /tmp/ \
   && git clone --recursive --branch v3.4.0 https://github.com/VirusTotal/yara.git \
   && cd /tmp/yara \
@@ -32,8 +32,12 @@ RUN apk-install -t build-deps git autoconf automake file-dev flex git jansson-de
                  --with-crypto \
   && make \
   && make install \
+  && echo "Install yara-python..." \
+  && cd /tmp/ \
+  && git clone --recursive --branch v3.4.0 https://github.com/VirusTotal/yara-python \
   && cd yara-python \
-  && python setup.py build install \
+  && python setup.py build --dynamic-linking \
+  && python setup.py install \
   && rm -rf /tmp/* \
   && apk del --purge build-deps
 
