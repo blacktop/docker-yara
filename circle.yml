@@ -16,7 +16,7 @@ dependencies:
 
 test:
   override:
-    - docker run blacktop_yara /rules/my_first_rule my_first_rule
+    - docker run blacktop_yara /rules/test_rule /rules/test_rule
 
 deployment:
   # master:
