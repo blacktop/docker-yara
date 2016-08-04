@@ -4,7 +4,7 @@ MAINTAINER blacktop, https://github.com/blacktop
 
 ENV GOSU_VERSION 1.9
 
-RUN apk-install openssl file jansson python tini
+RUN apk-install openssl file jansson bison python tini
 RUN apk-install -t build-deps git autoconf automake file-dev flex git jansson-dev libc-dev libtool build-base openssl-dev python-dev py-setuptools \
   && set -x \
   && echo "Grab gosu for easy step-down from root..." \
