@@ -16,7 +16,7 @@ dependencies:
 
 test:
   override:
-    - docker run -v `pwd`:/rules -v `pwd`:/malware blacktop_yara my_first_rule my_first_rule
+    - docker run blacktop_yara /rules/my_first_rule my_first_rule
 
 deployment:
   # master:

@@ -38,6 +38,9 @@ RUN apk-install -t build-deps git autoconf automake file-dev flex git jansson-de
   && cd yara-python \
   && python setup.py build --dynamic-linking \
   && python setup.py install \
+  && echo "Make test_rule..." \
+  && mkdir /rules \
+  && echo "rule dummy { condition: true }" > /rules/test_rule \
   && rm -rf /tmp/* \
   && apk del --purge build-deps
 
