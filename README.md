@@ -14,13 +14,12 @@ This repository contains a **Dockerfile** of [Yara](http://virustotal.github.io/
 ### Image Tags
 
 ```bash
-$ docker images
-
-REPOSITORY          TAG                 VIRTUAL SIZE
-blacktop/yara       latest              55.85 MB
-blacktop/yara       3.4                 55.85 MB
-blacktop/yara       w-rules             62.42 MB
-blacktop/yara       no-py               16.91 MB
+REPOSITORY          TAG                 SIZE
+blacktop/yara       latest              53.08 MB
+blacktop/yara       3.5                 54.11 MB
+blacktop/yara       w-rules             59.59 MB
+blacktop/yara       no-py               14.09 MB
+blacktop/yara       3.4                 52.95 MB
 blacktop/yara       3.1.0               163.7 MB (debian:jessie)
 ```
 
