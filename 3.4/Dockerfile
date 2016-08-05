@@ -36,7 +36,7 @@ RUN apk-install -t build-deps git autoconf automake file-dev flex git jansson-de
   && cd /tmp/ \
   && git clone --recursive --branch v3.4.0 https://github.com/VirusTotal/yara-python \
   && cd yara-python \
-  && python setup.py build --dynamic-linking \
+  && python setup.py build \
   && python setup.py install \
   && rm -rf /tmp/* \
   && apk del --purge build-deps
