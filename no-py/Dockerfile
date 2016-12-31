@@ -2,13 +2,12 @@ FROM gliderlabs/alpine:3.4
 
 MAINTAINER blacktop, https://github.com/blacktop
 
-ENV YARA_VERSION 3.4.0
+ENV YARA_VERSION 3.5.0
 
-RUN apk-install openssl file jansson bison python tini su-exec
+RUN apk-install openssl file jansson bison tini su-exec
 RUN apk-install -t .build-deps py-setuptools \
                                 openssl-dev \
                                 jansson-dev \
-                                python-dev \
                                 build-base \
                                 libc-dev \
                                 file-dev \
@@ -19,7 +18,7 @@ RUN apk-install -t .build-deps py-setuptools \
                                 git \
                                 git \
   && set -x \
-  && echo "===> Install Yara from source..." \
+  && echo "Install Yara from source..." \
   && cd /tmp/ \
   && git clone --recursive --branch v$YARA_VERSION https://github.com/VirusTotal/yara.git \
   && cd /tmp/yara \
@@ -30,11 +29,7 @@ RUN apk-install -t .build-deps py-setuptools \
                  --with-crypto \
   && make \
   && make install \
-  && echo "===> Install yara-python..." \
-  && cd yara-python \
-  && python setup.py build \
-  && python setup.py install \
-  && echo "===> Make test_rule..." \
+  && echo "Make test_rule..." \
   && mkdir /rules \
   && echo "rule dummy { condition: true }" > /rules/test_rule \
   && rm -rf /tmp/* \

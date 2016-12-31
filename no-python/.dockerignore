@@ -1,9 +1,0 @@
-# Ignore .git folder
-.git*
-
-README.md
-README.md.bu
-LICENSE
-logo.png
-build
-release

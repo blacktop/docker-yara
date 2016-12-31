@@ -3,7 +3,7 @@
 Yara Dockerfile
 ===============
 
-[![CircleCI](https://circleci.com/gh/blacktop/docker-yara.png?style=shield)](https://circleci.com/gh/blacktop/docker-yara) [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org) [![Docker Stars](https://img.shields.io/docker/stars/blacktop/yara.svg)](https://hub.docker.com/r/blacktop/yara/) [![Docker Pulls](https://img.shields.io/docker/pulls/blacktop/yara.svg)](https://hub.docker.com/r/blacktop/yara/) [![Docker Image](https://img.shields.io/badge/docker image-56.21 MB-blue.svg)](https://hub.docker.com/r/blacktop/yara/)
+[![CircleCI](https://circleci.com/gh/blacktop/docker-yara.png?style=shield)](https://circleci.com/gh/blacktop/docker-yara) [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org) [![Docker Stars](https://img.shields.io/docker/stars/blacktop/yara.svg)](https://hub.docker.com/r/blacktop/yara/) [![Docker Pulls](https://img.shields.io/docker/pulls/blacktop/yara.svg)](https://hub.docker.com/r/blacktop/yara/) [![Docker Image](https://img.shields.io/badge/docker image-52.32 MB-blue.svg)](https://hub.docker.com/r/blacktop/yara/)
 
 This repository contains a **Dockerfile** of [Yara](http://virustotal.github.io/yara/).
 
@@ -15,11 +15,11 @@ This repository contains a **Dockerfile** of [Yara](http://virustotal.github.io/
 
 ```bash
 REPOSITORY          TAG                 SIZE
-blacktop/yara       latest              53.08 MB
-blacktop/yara       3.5                 54.11 MB
-blacktop/yara       w-rules             59.59 MB
-blacktop/yara       no-py               14.09 MB
-blacktop/yara       3.4                 52.95 MB
+blacktop/yara       latest              52.32 MB
+blacktop/yara       3.5                 52.32 MB
+blacktop/yara       w-rules             58.89 MB
+blacktop/yara       no-py               13.37 MB
+blacktop/yara       3.4                 52.24 MB
 blacktop/yara       3.1.0               163.7 MB (debian:jessie)
 ```
 
