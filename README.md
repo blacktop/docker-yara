@@ -40,7 +40,7 @@ $ docker run --rm -v /path/to/rules:/rules:ro \
 ```
 
 ```
-YARA 3.4.0, the pattern matching swiss army knife.
+YARA 3.5.0, the pattern matching swiss army knife.
 Usage: yara [OPTION]... RULES_FILE FILE | DIR | PID
 
 Mandatory arguments to long options are mandatory for short options too.
@@ -58,6 +58,7 @@ Mandatory arguments to long options are mandatory for short options too.
   -d VAR=VALUE                     define external variable
   -x MODULE=FILE                   pass FILE's content as extra data to MODULE
   -a,  --timeout=SECONDS           abort scanning after the given number of SECONDS
+  -k,  --stack-size=SLOTS          set maximum stack size (default=16384)
   -r,  --recursive                 recursively search directories
   -f,  --fast-scan                 fast matching mode
   -w,  --no-warnings               disable warnings
