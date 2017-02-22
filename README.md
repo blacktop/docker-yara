@@ -23,13 +23,13 @@ blacktop/yara       3.4                 52.24 MB
 blacktop/yara       3.1.0               163.7 MB (debian:jessie)
 ```
 
-> NOTE: tag **no-py** is `yara:3.5` without yara-python
+> NOTE: tag **no-py** is `yara:3.5` without yara-python  
 > NOTE: tag **w-rules** is `yara:3.5` with some default yara rules included in the /rules directory.
 
 ### Installation
 
 1.	Install [Docker](https://docs.docker.com).
-2.	Download [trusted build](https://hub.docker.com/u/blacktop/yara/) from public [Docker Registry](https://hub.docker.com/): `docker pull blacktop/yara`
+2.	Download [trusted build](https://hub.docker.com/r/blacktop/yara/) from public [Docker Registry](https://hub.docker.com/): `docker pull blacktop/yara`
 
 ### Getting Started
 
