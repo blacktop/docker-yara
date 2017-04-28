@@ -1,11 +1,11 @@
-FROM gliderlabs/alpine:3.4
+FROM alpine:3.5
 
-MAINTAINER blacktop, https://github.com/blacktop
+LABEL maintainer "https://github.com/blacktop"
 
 ENV YARA_VERSION 3.5.0
 
-RUN apk-install openssl file jansson bison tini su-exec
-RUN apk-install -t .build-deps py-setuptools \
+RUN apk add --no-cache openssl file jansson bison tini su-exec
+RUN apk add --no-cache -t .build-deps py-setuptools \
                                 openssl-dev \
                                 jansson-dev \
                                 build-base \
@@ -41,5 +41,4 @@ VOLUME ["/rules"]
 WORKDIR /malware
 
 ENTRYPOINT ["su-exec","nobody","/sbin/tini","--","yara"]
-
 CMD ["--help"]

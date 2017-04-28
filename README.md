@@ -3,23 +3,23 @@
 Yara Dockerfile
 ===============
 
-[![CircleCI](https://circleci.com/gh/blacktop/docker-yara.png?style=shield)](https://circleci.com/gh/blacktop/docker-yara) [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org) [![Docker Stars](https://img.shields.io/docker/stars/blacktop/yara.svg)](https://hub.docker.com/r/blacktop/yara/) [![Docker Pulls](https://img.shields.io/docker/pulls/blacktop/yara.svg)](https://hub.docker.com/r/blacktop/yara/) [![Docker Image](https://img.shields.io/badge/docker image-52.32 MB-blue.svg)](https://hub.docker.com/r/blacktop/yara/)
+[![CircleCI](https://circleci.com/gh/blacktop/docker-yara.png?style=shield)](https://circleci.com/gh/blacktop/docker-yara) [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org) [![Docker Stars](https://img.shields.io/docker/stars/blacktop/yara.svg)](https://hub.docker.com/r/blacktop/yara/) [![Docker Pulls](https://img.shields.io/docker/pulls/blacktop/yara.svg)](https://hub.docker.com/r/blacktop/yara/) [![Docker Image](https://img.shields.io/badge/docker%20image-54.3%20MB-blue.svg)](https://hub.docker.com/r/blacktop/yara/)
 
 This repository contains a **Dockerfile** of [Yara](http://virustotal.github.io/yara/).
 
 ### Dependencies
 
--	[gliderlabs/alpine:3.4](https://hub.docker.com/_/gliderlabs/alpine/)
+-	[alpine:3.5](https://index.docker.io/_/gliderlabs/alpine/)
 
 ### Image Tags
 
 ```bash
 REPOSITORY          TAG                 SIZE
-blacktop/yara       latest              52.32 MB
-blacktop/yara       3.5                 52.32 MB
-blacktop/yara       w-rules             58.89 MB
-blacktop/yara       no-py               13.37 MB
-blacktop/yara       3.4                 52.24 MB
+blacktop/yara       latest              54.3 MB
+blacktop/yara       3.5                 54.3 MB
+blacktop/yara       w-rules             60.9 MB
+blacktop/yara       no-py               15.5 MB
+blacktop/yara       3.4                 54.3 MB
 blacktop/yara       3.1.0               163.7 MB (debian:jessie)
 ```
 
