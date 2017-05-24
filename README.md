@@ -41,7 +41,7 @@ $ docker run --rm -v /path/to/rules:/rules:ro \
 ```
 
 ```
-YARA 3.5.0, the pattern matching swiss army knife.
+YARA 3.6.0, the pattern matching swiss army knife.
 Usage: yara [OPTION]... RULES_FILE FILE | DIR | PID
 
 Mandatory arguments to long options are mandatory for short options too.
@@ -53,6 +53,7 @@ Mandatory arguments to long options are mandatory for short options too.
   -g,  --print-tags                print tags
   -m,  --print-meta                print metadata
   -s,  --print-strings             print matching strings
+  -L,  --print-string-length       print length of matched strings
   -e,  --print-namespace           print rules' namespace
   -p,  --threads=NUMBER            use the specified NUMBER of threads to scan a directory
   -l,  --max-rules=NUMBER          abort scanning after matching a NUMBER of rules
@@ -63,6 +64,7 @@ Mandatory arguments to long options are mandatory for short options too.
   -r,  --recursive                 recursively search directories
   -f,  --fast-scan                 fast matching mode
   -w,  --no-warnings               disable warnings
+       --fail-on-warnings          fail on warnings
   -v,  --version                   show version information
   -h,  --help                      show this help and exit
 
