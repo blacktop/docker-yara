@@ -1,7 +1,7 @@
 REPO=blacktop
 NAME=yara
-BUILD ?= 3.5
-LATEST ?= 3.5
+BUILD ?= 3.6
+LATEST ?= 3.6
 
 all: build size test
 

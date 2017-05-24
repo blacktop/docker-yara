@@ -3,7 +3,7 @@
 Yara Dockerfile
 ===============
 
-[![CircleCI](https://circleci.com/gh/blacktop/docker-yara.png?style=shield)](https://circleci.com/gh/blacktop/docker-yara) [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org) [![Docker Stars](https://img.shields.io/docker/stars/blacktop/yara.svg)](https://hub.docker.com/r/blacktop/yara/) [![Docker Pulls](https://img.shields.io/docker/pulls/blacktop/yara.svg)](https://hub.docker.com/r/blacktop/yara/) [![Docker Image](https://img.shields.io/badge/docker%20image-54.3%20MB-blue.svg)](https://hub.docker.com/r/blacktop/yara/)
+[![CircleCI](https://circleci.com/gh/blacktop/docker-yara.png?style=shield)](https://circleci.com/gh/blacktop/docker-yara) [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org) [![Docker Stars](https://img.shields.io/docker/stars/blacktop/yara.svg)](https://hub.docker.com/r/blacktop/yara/) [![Docker Pulls](https://img.shields.io/docker/pulls/blacktop/yara.svg)](https://hub.docker.com/r/blacktop/yara/) [![Docker Image](https://img.shields.io/badge/docker%20image-53.8MB-blue.svg)](https://hub.docker.com/r/blacktop/yara/)
 
 This repository contains a **Dockerfile** of [Yara](http://virustotal.github.io/yara/).
 
@@ -15,16 +15,17 @@ This repository contains a **Dockerfile** of [Yara](http://virustotal.github.io/
 
 ```bash
 REPOSITORY          TAG                 SIZE
-blacktop/yara       latest              54.3 MB
-blacktop/yara       3.5                 54.3 MB
-blacktop/yara       w-rules             60.9 MB
-blacktop/yara       no-py               15.5 MB
-blacktop/yara       3.4                 54.3 MB
-blacktop/yara       3.1.0               163.7 MB (debian:jessie)
+blacktop/yara       latest              53.8MB
+blacktop/yara       3.6                 53.8MB
+blacktop/yara       3.5                 54.3MB
+blacktop/yara       w-rules             60.4MB
+blacktop/yara       no-py               15MB
+blacktop/yara       3.4                 54.3MB
+blacktop/yara       3.1.0               163.7MB (debian:jessie)
 ```
 
-> NOTE: tag **no-py** is `yara:3.5` without yara-python  
-> NOTE: tag **w-rules** is `yara:3.5` with some default yara rules included in the /rules directory.
+> NOTE: tag **no-py** is `yara:3.6` without yara-python  
+> NOTE: tag **w-rules** is `yara:3.6` with some default yara rules included in the /rules directory.
 
 ### Installation
 
