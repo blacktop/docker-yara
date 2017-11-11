@@ -43,8 +43,6 @@ RUN apk add --no-cache -t .build-deps py-setuptools \
   && rm -rf /tmp/* \
   && apk del --purge .build-deps
 
-COPY rules /rules
-
 VOLUME ["/malware"]
 VOLUME ["/rules"]
 

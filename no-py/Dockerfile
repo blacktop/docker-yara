@@ -1,8 +1,8 @@
-FROM alpine:3.5
+FROM alpine:3.6
 
 LABEL maintainer "https://github.com/blacktop"
 
-ENV YARA_VERSION 3.6.3
+ENV YARA_VERSION 3.7.0
 
 RUN apk add --no-cache openssl file jansson bison tini su-exec
 RUN apk add --no-cache -t .build-deps py-setuptools \
@@ -24,9 +24,10 @@ RUN apk add --no-cache -t .build-deps py-setuptools \
   && cd /tmp/yara \
   && ./bootstrap.sh \
   && sync \
-  && ./configure --enable-cuckoo \
+  && ./configure --with-crypto \
                  --enable-magic \
-                 --with-dotnet \
+                 --enable-cuckoo \
+                 --enable-dotnet \
   && make \
   && make install \
   && echo "Make test_rule..." \
