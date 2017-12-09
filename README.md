@@ -1,22 +1,23 @@
 ![YARA-logo](https://raw.githubusercontent.com/blacktop/docker-yara/master/logo.png)
 
-Yara Dockerfile
-===============
+# Yara Dockerfile
 
-[![CircleCI](https://circleci.com/gh/blacktop/docker-yara.png?style=shield)](https://circleci.com/gh/blacktop/docker-yara) [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org) [![Docker Stars](https://img.shields.io/docker/stars/blacktop/yara.svg)](https://hub.docker.com/r/blacktop/yara/) [![Docker Pulls](https://img.shields.io/docker/pulls/blacktop/yara.svg)](https://hub.docker.com/r/blacktop/yara/) [![Docker Image](https://img.shields.io/badge/docker%20image-54.7MB-blue.svg)](https://hub.docker.com/r/blacktop/yara/)
+[![CircleCI](https://circleci.com/gh/blacktop/docker-yara.png?style=shield)](https://circleci.com/gh/blacktop/docker-yara) [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org) [![Docker Stars](https://img.shields.io/docker/stars/blacktop/yara.svg)](https://hub.docker.com/r/blacktop/yara/) [![Docker Pulls](https://img.shields.io/docker/pulls/blacktop/yara.svg)](https://hub.docker.com/r/blacktop/yara/) [![Docker Image](https://img.shields.io/badge/docker%20image-55.2MB-blue.svg)](https://hub.docker.com/r/blacktop/yara/)
 
 This repository contains a **Dockerfile** of [Yara](http://virustotal.github.io/yara/).
 
-### Dependencies
+--------------------------------------------------------------------------------
 
--	[alpine:3.5](https://index.docker.io/_/gliderlabs/alpine/)
+## Dependencies
 
-### Image Tags
+- [alpine:3.7](https://index.docker.io/_/gliderlabs/alpine/)
+
+## Image Tags
 
 ```bash
 REPOSITORY          TAG                 SIZE
-blacktop/yara       latest              54.7MB
-blacktop/yara       3.7                 54.7MB
+blacktop/yara       latest              55.2MB
+blacktop/yara       3.7                 55.2MB
 blacktop/yara       3.6                 53.8MB
 blacktop/yara       3.5                 54.3MB
 blacktop/yara       w-rules             60.4MB
@@ -25,15 +26,18 @@ blacktop/yara       3.4                 54.3MB
 blacktop/yara       3.1.0               163.7MB (debian:jessie)
 ```
 
-> NOTE: tag **no-py** is `yara:3.6` without yara-python  
-> NOTE: tag **w-rules** is `yara:3.6` with some default yara rules included in the /rules directory.
+> **NOTE:**
 
-### Installation
+> - tag **no-py** is `yara:3.6` without yara-python<br>
 
-1.	Install [Docker](https://docs.docker.com).
-2.	Download [trusted build](https://hub.docker.com/r/blacktop/yara/) from public [Docker Registry](https://hub.docker.com/): `docker pull blacktop/yara`
+> - tag **w-rules** is `yara:3.6` with some default yara rules included in the /rules directory.
 
-### Getting Started
+## Installation
+
+1. Install [Docker](https://docs.docker.com).
+2. Download [trusted build](https://hub.docker.com/r/blacktop/yara/) from public [Docker Registry](https://hub.docker.com/): `docker pull blacktop/yara`
+
+## Getting Started
 
 ```bash
 $ docker run --rm -v /path/to/rules:/rules:ro \
@@ -78,18 +82,18 @@ Add the following to your bash or zsh profile
 alias yara='docker run -it --rm -v $(pwd):/malware:ro blacktop/yara $@'
 ```
 
-### Documentation
+## Documentation
 
-#### Usage
+### Usage
 
 ```bash
 $ yara [OPTION]... RULES_FILE FILE | DIR | PID
 ```
 
-### Issues
+## Issues
 
 Find a bug? Want more features? Find something missing in the documentation? Let me know! Please don't hesitate to [file an issue](https://github.com/blacktop/docker-yara/issues/new) and I'll get right on it.
 
-### License
+## License
 
 MIT Copyright (c) 2014-2017 **blacktop**
