@@ -27,9 +27,7 @@ blacktop/yara       3.1.0               163.7MB (debian:jessie)
 ```
 
 > **NOTE:**
-
 > - tag **no-py** is `yara:3.6` without yara-python<br>
-
 > - tag **w-rules** is `yara:3.6` with some default yara rules included in the /rules directory.
 
 ## Installation
