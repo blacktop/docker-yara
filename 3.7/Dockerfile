@@ -3,6 +3,7 @@ FROM alpine:3.7
 LABEL maintainer "https://github.com/blacktop"
 
 ENV YARA_VERSION 3.7.1
+ENV YARA_PY_VERSION 3.7.0
 
 RUN apk add --no-cache openssl file jansson bison python tini su-exec
 RUN apk add --no-cache -t .build-deps py-setuptools \
@@ -33,7 +34,7 @@ RUN apk add --no-cache -t .build-deps py-setuptools \
   && make install \
   && echo "Install yara-python..." \
   && cd /tmp/ \
-  && git clone --recursive --branch v$YARA_VERSION https://github.com/VirusTotal/yara-python \
+  && git clone --recursive --branch v$YARA_PY_VERSION https://github.com/VirusTotal/yara-python \
   && cd yara-python \
   && python setup.py build --dynamic-linking \
   && python setup.py install \
