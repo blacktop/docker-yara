@@ -2,7 +2,7 @@ FROM alpine:3.7
 
 LABEL maintainer "https://github.com/blacktop"
 
-ENV YARA_VERSION 3.7.0
+ENV YARA_VERSION 3.7.1
 
 RUN apk add --no-cache openssl file jansson bison tini su-exec
 RUN apk add --no-cache -t .build-deps py-setuptools \
