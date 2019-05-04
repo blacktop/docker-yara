@@ -3,11 +3,13 @@ FROM alpine:3.9
 LABEL maintainer "https://github.com/blacktop"
 
 ENV YARA_VERSION 3.10.0
+ENV YARA_PY_VERSION 3.10.0
 
-RUN apk add --no-cache openssl file jansson bison tini su-exec
+RUN apk add --no-cache openssl file jansson bison python tini su-exec
 RUN apk add --no-cache -t .build-deps py-setuptools \
   openssl-dev \
   jansson-dev \
+  python-dev \
   build-base \
   libc-dev \
   file-dev \
@@ -30,6 +32,12 @@ RUN apk add --no-cache -t .build-deps py-setuptools \
   --enable-dotnet \
   && make \
   && make install \
+  && echo "Install yara-python..." \
+  && cd /tmp/ \
+  && git clone --recursive --branch v$YARA_PY_VERSION https://github.com/VirusTotal/yara-python \
+  && cd yara-python \
+  && python setup.py build --dynamic-linking \
+  && python setup.py install \
   && echo "Make test_rule..." \
   && mkdir /rules \
   && echo "rule dummy { condition: true }" > /rules/test_rule \

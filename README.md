@@ -17,6 +17,7 @@ This repository contains a **Dockerfile** of [Yara](http://virustotal.github.io/
 ```bash
 REPOSITORY          TAG                 SIZE
 blacktop/yara       latest              53.6MB
+blacktop/yara       3.10                53.6MB
 blacktop/yara       3.9                 53.6MB
 blacktop/yara       3.8                 55.8MB
 blacktop/yara       3.7                 55.2MB
@@ -97,4 +98,4 @@ Find a bug? Want more features? Find something missing in the documentation? Let
 
 ## License
 
-MIT Copyright (c) 2014-2017 **blacktop**
+MIT Copyright (c) 2014 **blacktop**
