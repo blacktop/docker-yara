@@ -81,7 +81,7 @@ Send bug reports and suggestions to: vmalvarez@virustotal.com.
 Add the following to your bash or zsh profile
 
 ```bash
-alias yara='docker run -it --rm -v $(pwd):/malware:ro blacktop/yara $@'
+alias yara='docker run -it --rm -v "$(pwd)":/malware:ro blacktop/yara $@'
 ```
 
 ## Documentation
