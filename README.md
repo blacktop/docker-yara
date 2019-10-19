@@ -95,7 +95,7 @@ $ yara [OPTION]... RULES_FILE FILE | DIR | PID
 
 ## Issues
 
-Find a bug? Want more features? Find something missing in the documentation? Let me know! Please don't hesitate to [file an issue](https://github.com/blacktop/docker-yara/issues/new) and I'll get right on it.
+Found a bug? Want more features? Something is missing in the documentation? Let me know! Please don't hesitate to [file an issue](https://github.com/blacktop/docker-yara/issues/new) and I'll get right on it.
 
 ## License
 
