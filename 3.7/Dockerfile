@@ -7,18 +7,17 @@ ENV YARA_PY_VERSION 3.7.0
 
 RUN apk add --no-cache openssl file jansson bison python tini su-exec
 RUN apk add --no-cache -t .build-deps py-setuptools \
-                                openssl-dev \
-                                jansson-dev \
-                                python-dev \
-                                build-base \
-                                libc-dev \
-                                file-dev \
-                                automake \
-                                autoconf \
-                                libtool \
-                                flex \
-                                git \
-                                git \
+  openssl-dev \
+  jansson-dev \
+  python-dev \
+  build-base \
+  libc-dev \
+  file-dev \
+  automake \
+  autoconf \
+  libtool \
+  flex \
+  git \
   && set -x \
   && echo "Install Yara from source..." \
   && cd /tmp/ \
