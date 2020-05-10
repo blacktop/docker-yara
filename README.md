@@ -10,7 +10,7 @@ This repository contains a **Dockerfile** of [Yara](http://virustotal.github.io/
 
 ## Dependencies
 
-- [alpine:3.9](https://index.docker.io/_/gliderlabs/alpine/)
+- [alpine](https://hub.docker.com/_/alpine)
 
 ## Image Tags
 
