@@ -5,7 +5,7 @@ LABEL maintainer "https://github.com/blacktop"
 ENV YARA_VERSION 4.0.2
 
 RUN apk add --no-cache openssl file jansson bison su-exec
-RUN apk add --no-cache -t .build-deps py-setuptools \
+RUN apk add --no-cache -t .build-deps \
   openssl-dev \
   jansson-dev \
   build-base \

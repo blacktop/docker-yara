@@ -5,11 +5,11 @@ LABEL maintainer "https://github.com/blacktop"
 ENV YARA_VERSION 4.0.2
 ENV YARA_PY_VERSION 4.0.2
 
-RUN apk add --no-cache openssl file jansson bison python tini su-exec
-RUN apk add --no-cache -t .build-deps py-setuptools \
+RUN apk add --no-cache openssl file jansson bison python3 tini su-exec
+RUN apk add --no-cache -t .build-deps py3-setuptools \
   openssl-dev \
   jansson-dev \
-  python-dev \
+  python3-dev \
   build-base \
   libc-dev \
   file-dev \
@@ -36,8 +36,8 @@ RUN apk add --no-cache -t .build-deps py-setuptools \
   && cd /tmp/ \
   && git clone --recursive --branch v$YARA_PY_VERSION https://github.com/VirusTotal/yara-python \
   && cd yara-python \
-  && python setup.py build --dynamic-linking \
-  && python setup.py install \
+  && python3 setup.py build --dynamic-linking \
+  && python3 setup.py install \
   && echo "Make test_rule..." \
   && mkdir /rules \
   && echo "rule dummy { condition: true }" > /rules/test_rule \
