@@ -1,8 +1,8 @@
-FROM alpine:3.12
+FROM alpine:3.14
 
 LABEL maintainer "https://github.com/blacktop"
 
-ENV YARA_VERSION 4.0.2
+ENV YARA_VERSION 4.1.2
 
 RUN apk add --no-cache openssl file jansson bison su-exec
 RUN apk add --no-cache -t .build-deps \
