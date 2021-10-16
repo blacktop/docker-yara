@@ -56,6 +56,11 @@ jobs:
             blacktop/yara:4
             blacktop/yara:4.1
             blacktop/yara:4.1.2
+            blacktop/yara:latest
+            ghcr.io/blacktop/yara:4
+            ghcr.io/blacktop/yara:4.1
+            ghcr.io/blacktop/yara:4.1.2
+            ghcr.io/blacktop/yara:latest
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Build and push Docker image (no-py)
@@ -69,6 +74,10 @@ jobs:
             blacktop/yara:4-no-py
             blacktop/yara:4.1-no-py
             blacktop/yara:4.1.2-no-py
+            ghcr.io/blacktop/yara:no-py
+            ghcr.io/blacktop/yara:4-no-py
+            ghcr.io/blacktop/yara:4.1-no-py
+            ghcr.io/blacktop/yara:4.1.2-no-py
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Build and push Docker image (w-rules)
@@ -82,4 +91,8 @@ jobs:
             blacktop/yara:4-w-rules
             blacktop/yara:4.1-w-rules
             blacktop/yara:4.1.2-w-rules
+            ghcr.io/blacktop/yara:w-rules
+            ghcr.io/blacktop/yara:4-w-rules
+            ghcr.io/blacktop/yara:4.1-w-rules
+            ghcr.io/blacktop/yara:4.1.2-w-rules
           labels: ${{ steps.meta.outputs.labels }}
